@@ -1,0 +1,10 @@
+<dl>
+{%- set entries = feed['entries'] -%}
+{% for entry in entries %}
+  <dt><a href="{{ entry.href }}">{{ entry.title }}</a></dt>
+  <dd>{{ entry.summary }}</dd>
+{% endfor %}
+</dl>
+{% if feed.feed and feed.feed.link %}
+  <a href="{{ feed.feed.link }}">View all blog posts</a>
+{% endif %}

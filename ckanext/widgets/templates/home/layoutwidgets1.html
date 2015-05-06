@@ -1,0 +1,32 @@
+<div role="main" class="hero">
+  <div class="container">
+    <div class="row row1">
+      <div class="span6 col1">
+        {% block promoted %}
+          {% snippet 'home/snippets/promoted.html' %}
+        {% endblock %}
+      </div>
+      <div class="span6 col2">
+        {% block search %}
+          {% snippet 'home/snippets/search.html' %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+<div role="main">
+  <div class="container">
+    <div class="row row2">
+      <div class="span12 col1">
+        BLAH
+        {% block featured_feed %}
+          {%- set featured_feed = h.widgets_get_featured_feed() -%}
+          {% if featured_feed %}
+            {% snippet 'widgets/snippets/feed_list.html', feed_url=featured_feed, number_of_entires=3 %}
+          {% endif %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,16 @@
+{% if number_of_entries %}
+  {%- set feed = h.widgets_fetch_feed(feed_url, number_of_entries) -%}
+{% else %}
+  {%- set feed = h.widgets_fetch_feed(feed_url) -%}
+{% endif %}
+
+<dl>
+{%- set entries = feed['entries'] -%}
+{% for entry in entries %}
+  <dt><a href="{{ entry.href }}">{{ entry.title }}</a></dt>
+  <dd>{{ entry.summary }}</dd>
+{% endfor %}
+</dl>
+{% if feed.feed and feed.feed.link %}
+  <a href="{{ feed.feed.link }}">View all blog posts</a>
+{% endif %}
