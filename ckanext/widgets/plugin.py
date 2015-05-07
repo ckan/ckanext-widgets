@@ -17,4 +17,5 @@ class WidgetsPlugin(plugins.SingletonPlugin):
         return {
             'widgets_fetch_feed': helpers.fetch_feed,
             'widgets_get_featured_feed': helpers.get_featured_feed,
+            'get_recently_updated_datasets': helpers.get_recently_updated_datasets
         }
