@@ -7,7 +7,7 @@
 <dl>
 {%- set entries = feed['entries'] -%}
 {% for entry in entries %}
-  <dt><a href="{{ entry.href }}">{{ entry.title }}</a></dt>
+  <dt><a href="{{ entry.link }}">{{ entry.title }}</a></dt>
   <dd>{{ entry.summary }}</dd>
 {% endfor %}
 </dl>
