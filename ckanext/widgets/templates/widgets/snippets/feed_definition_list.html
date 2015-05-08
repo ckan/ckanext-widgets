@@ -8,7 +8,10 @@
 {%- set entries = feed['entries'] -%}
 {% for entry in entries %}
   <dt><a href="{{ entry.link }}">{{ entry.title }}</a></dt>
-  <dd>{{ entry.summary }}</dd>
+  <dd>
+    {{ entry.summary|replace('[&#8230;]', '') }}
+    ... <a href="{{ entry.link }}">>></a>
+  </dd>
 {% endfor %}
 </dl>
 {% if feed.feed and feed.feed.link %}
