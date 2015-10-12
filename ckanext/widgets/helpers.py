@@ -2,13 +2,17 @@ from ckan.plugins import toolkit
 from ckan.lib import search
 from pylons import config
 import feedparser
+import socket
+
+
+socket.setdefaulttimeout(10)
 
 
 def fetch_feed(feed_url, number_of_entries=3):
     feed = feedparser.parse(feed_url)
     feed['entries'] = feed['entries'][:number_of_entries]
     return feed
-    
+
 
 def get_featured_feed():
     return config.get('ckanext.widgets.featured_feed')
